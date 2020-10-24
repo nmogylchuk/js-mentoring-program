@@ -1,0 +1,11 @@
+$yellow: #ffff00;
+$black: #000;
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    background: $yellow;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid $black;  
+}
