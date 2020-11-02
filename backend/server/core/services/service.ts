@@ -9,25 +9,19 @@ import { Status } from '../interfaces/status';
  * Returns a current task with its status by the challenge id
  * @param challengeId - id of current challenge
  */
-function getCurrentTask(challengeId: number): ActualTask {
-  return;
-}
+type GetCurrentTask = (challengeId: number) => ActualTask;
 
 /**
  * Returns a list of actual achievements by the challenge id
  * @param challengeId - id of current challenge
  */
-function getAchievements(challengeId: number): ActualAchievement[] {
-  return;
-}
+type GetAchievements = (challengeId: number) => ActualAchievement[];
 
 /**
  * Returns all past tasks with their results by the challenge id
  * @param challengeId - id of current challenge
  */
-function getTaskArchive(challengeId: number): Task[] {
-  return;
-}
+type GetTaskArchive = (challengeId: number) => Task[];
 
 /**
  * Returns a new challenge using the following parameters: a list of tasks, a list of challenges, challenge duration
@@ -37,23 +31,19 @@ function getTaskArchive(challengeId: number): Task[] {
  * @param challengeDuration - challenge duration that by default should be 30 days
  * @param numberOfAchievements - number of achievements that by default should be challenge duration / 6
  */
-function startNewChallenge(
+type StartNewChallenge = (
   tasks: Task[],
   challenges: Challenge[],
-  challengeDuration: number = 30,
-  numberOfAchievements: number = challengeDuration / 6
-): Challenge {
-  return;
-}
+  challengeDuration: number,
+  numberOfAchievements: number
+) => Challenge;
 
 /**
  * Returns achievements statusfor the challenge by its achievements listand tasks status
  * @param achievements - a list of achievements
  * @param taskStatus - tasks status
  */
-function calculateAchievementStatus(
+type CalculateAchievementStatus = (
   achievements: Achievement[],
   taskStatus: Status
-): Status {
-  return;
-}
+) => Status;
