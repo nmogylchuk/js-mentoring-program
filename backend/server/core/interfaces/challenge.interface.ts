@@ -1,6 +1,6 @@
-import { StateChallenge } from '../enums/stateChallenge';
-import { Task } from './task';
-import { Status } from './status';
+import { StateChallenge } from '../enums/stateChallenge.enum';
+import { Task } from './task.interface';
+import { Status } from './status.interface';
 
 export interface Challenge {
     readonly id: number;

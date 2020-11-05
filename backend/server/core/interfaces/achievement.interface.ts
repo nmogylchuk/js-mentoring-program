@@ -1,4 +1,4 @@
-import { Status } from './status';
+import { Status } from './status.interface';
 
 export interface Achievement {
     readonly id: number;
