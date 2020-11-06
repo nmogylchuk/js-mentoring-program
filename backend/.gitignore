@@ -14,3 +14,6 @@
 .idea/
 .github
 .git
+
+# docs
+/docs

@@ -4,7 +4,7 @@ describe('Sample Test', () => {
   });
 });
 
-const app = require('../server/index');
+const app = require('../index');
 const supertest = require('supertest');
 const request = supertest(app);
 
