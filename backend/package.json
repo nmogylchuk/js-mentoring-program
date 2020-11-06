@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server/index.ts",
     "build": "tsc",
-    "test": "jest",
+    "test": "jest --forceExit",
     "lint": "eslint server/**/*{.ts,.js}",
     "lint:fix": "eslint --fix server/**/*{.ts,.js}",
     "doc": "typedoc"
@@ -54,7 +54,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run test"
+      "pre-commit": "lint-staged && npm run test --forceExit"
     }
   },
   "lint-staged": {

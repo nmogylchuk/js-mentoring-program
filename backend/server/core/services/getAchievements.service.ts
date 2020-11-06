@@ -5,3 +5,7 @@ import { ActualAchievement } from '../interfaces/actualAchievement.interface';
  * @param challengeId - id of current challenge
  */
 type GetAchievements = (challengeId: number) => ActualAchievement[];
+
+function getAchievements(challengeId: number): ActualAchievement[] {
+  return;
+}

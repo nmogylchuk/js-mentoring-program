@@ -5,3 +5,7 @@ import { ArchiveItem } from '../interfaces/archiveItem.interface';
  * @param challengeId - id of current challenge
  */
 type GetTaskArchive = (challengeId: number) => ArchiveItem[];
+
+function getTaskArchive(challengeId: number): ArchiveItem[] {
+  return;
+}

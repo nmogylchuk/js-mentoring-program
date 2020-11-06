@@ -10,8 +10,17 @@ import { Challenge } from '../interfaces/challenge.interface';
  * @param numberOfAchievements - number of achievements that by default should be challenge duration / 6
  */
 type StartNewChallenge = (
-    tasks: Task[],
-    challenges: Challenge[],
-    challengeDuration: number,
-    numberOfAchievements: number
-  ) => Challenge;
+  tasks: Task[],
+  challenges: Challenge[],
+  challengeDuration: number,
+  numberOfAchievements: number
+) => Challenge;
+
+function startNewChallenge(
+  tasks: Task[],
+  challenges: Challenge[],
+  challengeDuration: number,
+  numberOfAchievements: number
+): Challenge {
+  return;
+}

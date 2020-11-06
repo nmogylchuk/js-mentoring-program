@@ -8,5 +8,9 @@ import { Status } from '../interfaces/status.interface';
  */
 type CalculateAchievementStatus = (
     achievements: Achievement[],
-    taskStatus: Status
+    tasksStatus: Status
   ) => Status;
+
+function calculateAchievementStatus (achievements: Achievement[], tasksStatus: Status): Status {
+    return;
+}
