@@ -8,7 +8,7 @@ import { Status } from '../core/interfaces/status.interface';
 import { getCurrentTask } from '../core/services/getCurrentTask.service';
 
 describe('Test getCurrentTask', () => {
-  it('should test that getCurrentTask returns expectes task', () => {
+  it('should test that getCurrentTask returns expected task', () => {
     const taskData: Task[] = loadTasks();
 
     const challengeTasksStatus: Status = {
@@ -46,14 +46,13 @@ describe('Test getCurrentTask', () => {
     challenges.push(challenge2);
 
     const currentTask1 = getCurrentTask(1, challenges);
-    expect(1).toBe(currentTask1.id);
-    expect('Go to bed before 11:00 PM').toBe(currentTask1.description);
-    expect(StateItem.PENDING).toBe(currentTask1.status.state);
-
+    expect(currentTask1.id).toBe(1);
+    expect(currentTask1.description).toBe('Go to bed before 11:00 PM');
+    expect(currentTask1.status.state).toBe(StateItem.PENDING);
 
     const currentTask2 = getCurrentTask(2, challenges);
-    expect(7).toBe(currentTask2.id);
-    expect('Eat your breakfast in bed').toBe(currentTask2.description);
-    expect(StateItem.PENDING).toBe(currentTask2.status.state);
+    expect(currentTask2.id).toBe(7);
+    expect(currentTask2.description).toBe('Eat your breakfast in bed');
+    expect(currentTask2.status.state).toBe(StateItem.PENDING);
   });
 });
