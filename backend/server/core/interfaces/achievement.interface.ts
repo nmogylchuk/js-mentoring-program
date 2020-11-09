@@ -1,4 +1,4 @@
-import { Status } from './status.interface';
+// import { Status } from './status.interface';
 
 export interface Achievement {
     readonly id: number;
@@ -9,6 +9,6 @@ export interface Achievement {
  * Returns an achievement status by tasks status
  * @param status - task status
  */
-    checkComplete(tasksStatus: Status): Status;
+    // checkComplete(tasksStatus: Status): Status;
 }
 

@@ -1,4 +1,6 @@
-export function loadTasks() {
+import { Task } from './../server/core/interfaces/task.interface';
+
+export function loadTasks(): Task[] {
   return [
     {
       id: 1,

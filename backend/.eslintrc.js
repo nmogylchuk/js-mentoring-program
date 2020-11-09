@@ -29,5 +29,7 @@ module.exports = {
     'no-useless-return': 'off',
     'import/prefer-default-export': 'off',
     'no-shadow': 'off',
-  },
+    'no-plusplus': 'off',
+    'no-param-reassign': 'off',
+    'object-shorthand': 'off'},
 };

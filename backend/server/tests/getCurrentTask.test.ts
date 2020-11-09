@@ -1,6 +1,6 @@
 import { StateChallenge } from '../core/enums/stateChallenge.enum';
 import('../core/interfaces/challenge.interface');
-import { loadTasks } from './data/tasks';
+import { loadTasks } from './../../data/tasks';
 import { Task } from '../core/interfaces/task.interface';
 import { Challenge } from '../core/interfaces/challenge.interface';
 import { StateItem } from '../core/enums/stateItem.enum';
@@ -51,8 +51,8 @@ describe('Test getCurrentTask', () => {
     expect(currentTask1.status.state).toBe(StateItem.PENDING);
 
     const currentTask2 = getCurrentTask(2, challenges);
-    expect(currentTask2.id).toBe(7);
-    expect(currentTask2.description).toBe('Eat your breakfast in bed');
+    expect(currentTask2.id).toBe(6);
+    expect(currentTask2.description).toBe('Call your family');
     expect(currentTask2.status.state).toBe(StateItem.PENDING);
   });
 });
