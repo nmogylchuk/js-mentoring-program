@@ -5,8 +5,8 @@ import { Achievement } from '../core/interfaces/achievement.interface';
 import { loadAchievements } from '../../data/achievements';
 import { calculateAchievementsStatus } from '../core/services/calculateAchievementsStatus.service';
 
-describe('Test calculateAchievementsStatus', () => {
-  it('should test that calculateAchievementsStatus calculates expected achievementsStatus', () => {
+describe('calculateAchievementsStatus', () => {
+  it('should calculate expected achievementsStatus', () => {
     const achievements: Achievement[] = loadAchievements();
     const tasksStatus: Status = {
       state: StateItem.SUCCESS,

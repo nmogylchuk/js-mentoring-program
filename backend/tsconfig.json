@@ -6,12 +6,20 @@
     "preserveConstEnums": true,
     "sourceMap": false,
     "target": "es6",
-    "outDir": "./build"
+    "outDir": "./build",
+    "lib": [
+      "es2019"
+    ]
   },
   "typedocOptions": {
     "mode": "modules",
     "out": "docs"
-},
-  "include": ["server/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  },
+  "include": [
+    "server/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
 }

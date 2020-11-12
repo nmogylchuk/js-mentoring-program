@@ -7,9 +7,10 @@
     "start": "nodemon server/index.ts",
     "build": "tsc",
     "test": "jest --forceExit",
-    "lint": "eslint server/**/*{.ts,.js}",
-    "lint:fix": "eslint --fix server/**/*{.ts,.js}",
-    "doc": "typedoc"
+    "lint": "eslint server/**/*.ts",
+    "lint:fix": "eslint --fix server/**/*.ts",
+    "doc": "typedoc",
+    "prettier": "prettier --config .prettierrc --write server/**/*.ts"
   },
   "author": "Nataliia Mogylchuk",
   "repository": {

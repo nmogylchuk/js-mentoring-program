@@ -7,8 +7,8 @@ import { StateItem } from '../core/enums/stateItem.enum';
 import { Status } from '../core/interfaces/status.interface';
 import { startNewChallenge } from '../core/services/startNewChallenge.service';
 
-describe('Test startNewChallenge', () => {
-  it('should test that startNewChallenge creates expected Challenge', () => {
+describe('startNewChallenge', () => {
+  it('should create expected Challenge', () => {
     const tasks: Task[] = loadTasks();
     const challengeTasksStatus: Status = {
       state: StateItem.PENDING,
@@ -29,12 +29,10 @@ describe('Test startNewChallenge', () => {
       achievementsStatus: challengeAchievmentsStatus,
     };
 
-    const date = new Date(Date.now() - 3600 * 1000 * 24);
-
     const challenge2: Challenge = {
       id: 6,
       state: StateChallenge.IN_PROGRESS,
-      startDate: date,
+      startDate: new Date(),
       tasksOrder: tasks.slice(4, 7),
       tasksStatus: challengeTasksStatus,
       achievementsStatus: challengeAchievmentsStatus,

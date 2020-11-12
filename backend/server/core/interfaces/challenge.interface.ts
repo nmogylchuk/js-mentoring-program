@@ -1,7 +1,7 @@
 import { StateChallenge } from '../enums/stateChallenge.enum';
 import { Task } from './task.interface';
 import { Status } from './status.interface';
-import {Achievement} from "./achievement.interface";
+import { ActualAchievement } from './actualAchievement.interface';
 
 export interface Challenge {
     readonly id: number;
@@ -10,5 +10,5 @@ export interface Challenge {
     tasksOrder: Task[];
     tasksStatus: Status;
     achievementsStatus: Status;
-    achievements?: Achievement[];
+    achievements?: ActualAchievement[];
 }

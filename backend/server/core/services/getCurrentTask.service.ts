@@ -1,34 +1,30 @@
-import { ActualTask } from '../interfaces/actualTask.interface';
-import { Challenge } from '../interfaces/challenge.interface';
-import { StateItem } from '../enums/stateItem.enum';
-import { Status } from '../interfaces/status.interface';
+import {ActualTask} from '../interfaces/actualTask.interface';
+import {Challenge} from '../interfaces/challenge.interface';
+import {Constants} from '../constants/constants';
+import {findChallengeByid, getDayBetweenStartDateAndCurrentDate} from '../utils/utils';
 
 /**
  * Returns a current task with its status by the challenge id
  * @param challengeId - id of current challenge
  */
-// type GetCurrentTask = (challengeId: number) => ActualTask;
 
 export function getCurrentTask(
-  challengeId: number,
-  challenges: Challenge[]
+    challengeId: number,
+    challenges: Challenge[]
 ): ActualTask {
-  const challenge: Challenge = challenges.find(
-    (challenge) => challenge.id === challengeId
-  );
+    const challenge: Challenge = findChallengeByid(challengeId, challenges);
 
-  const timeBetween = new Date().getTime() - challenge.startDate.getTime();
-  const daysBetween = Math.floor(timeBetween / (1000 * 3600 * 24));
-  const currentTask = challenge.tasksOrder[daysBetween];
+    if (!challenge) {
+        return null;
+    }
 
-  const currentTasksStatus: Status = {
-    state: StateItem.PENDING,
-    updated: new Date(),
-  };
-  const actualCurrentTask: ActualTask = {
-    id: currentTask.id,
-    description: currentTask.description,
-    status: currentTasksStatus,
-  };
-  return actualCurrentTask;
+    const dayBetween = getDayBetweenStartDateAndCurrentDate(challenge.startDate);
+    const currentTask = challenge.tasksOrder[dayBetween];
+
+    const actualCurrentTask: ActualTask = {
+        id: currentTask.id,
+        description: currentTask.description,
+        status: Constants.PENDING_STATUS,
+    };
+    return actualCurrentTask;
 }

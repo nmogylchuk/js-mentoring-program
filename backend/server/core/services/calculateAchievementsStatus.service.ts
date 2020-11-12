@@ -6,10 +6,6 @@ import { Status } from '../interfaces/status.interface';
  * @param achievements - a list of achievements
  * @param taskStatus - tasks status
  */
-// type CalculateAchievementStatus = (
-//     achievements: Achievement[],
-//     tasksStatus: Status
-//   ) => Status;
 
 export function calculateAchievementsStatus(
   achievements: Achievement[],

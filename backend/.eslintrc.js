@@ -31,5 +31,6 @@ module.exports = {
     'no-shadow': 'off',
     'no-plusplus': 'off',
     'no-param-reassign': 'off',
-    'object-shorthand': 'off'},
+    'object-shorthand': 'off',
+  },
 };
