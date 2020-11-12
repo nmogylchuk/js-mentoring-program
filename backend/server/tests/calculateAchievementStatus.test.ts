@@ -18,7 +18,7 @@ describe('calculateAchievementsStatus', () => {
       tasksStatus
     );
     expect(achievementsStatuses.size).toBe(achievements.length);
-    achievementsStatuses.forEach((value, key) => {
+    achievementsStatuses.forEach((value) => {
       expect(value.state).toBe(StateItem.SUCCESS);
       expect(value.updated.getDay()).toBe(new Date().getDay());
     });
