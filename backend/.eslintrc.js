@@ -32,5 +32,7 @@ module.exports = {
     'no-plusplus': 'off',
     'no-param-reassign': 'off',
     'object-shorthand': 'off',
+    'class-methods-use-this': 'off',
+    'no-undef': 'off',
   },
 };

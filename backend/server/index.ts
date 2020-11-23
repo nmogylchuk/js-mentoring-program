@@ -1,15 +1,5 @@
-const express = require('express');
+import { App } from './app';
 
-const port = 8080;
-const app = express();
+let app = new App().app;
 
-app.get('/test', function (req: any, res: any) {
-  res.json({ message: 'Hello, World!' });
-});
-
-const server = app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-  console.log('Hello, World!');
-});
-
-module.exports = server;
+export { app };
