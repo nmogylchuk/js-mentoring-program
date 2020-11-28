@@ -1,5 +1,4 @@
 import { ArchiveItem } from '../interfaces/archiveItem.interface';
-import { Challenge } from '../interfaces/challenge.interface';
 import { getAchievements } from './getAchievements.service';
 import { ActualAchievement } from '../interfaces/actualAchievement.interface';
 import { ActualTask } from '../interfaces/actualTask.interface';
@@ -20,14 +19,13 @@ function getArchiveTasks(actualTasks: ActualTask[]): ArchiveItem[] {
  * @param challengeId - id of current challenge
  */
 
-export function getTaskArchive(
-  challengeId: number,
-  challenges: Challenge[]
-): ArchiveItem[] {
-  const actualAchievements: ActualAchievement[] = getAchievements(challengeId, challenges);
+export async function getTaskArchive(
+    challengeId: string
+): Promise<ArchiveItem[]> {
+  const actualAchievements: ActualAchievement[] = await getAchievements(challengeId);
 
   return actualAchievements.flatMap((actualAchievement) =>
-    getArchiveTasks(actualAchievement.tasks)
+      getArchiveTasks(actualAchievement.tasks)
   );
 }
 

@@ -34,5 +34,10 @@ module.exports = {
     'object-shorthand': 'off',
     'class-methods-use-this': 'off',
     'no-undef': 'off',
+    'sort-imports': 'off',
+    'lines-between-class-members': 'off',
+    'prefer-template': 'off',
+    'import/no-mutable-exports': 'off',
+    'prefer-destructuring': 'off',
   },
 };

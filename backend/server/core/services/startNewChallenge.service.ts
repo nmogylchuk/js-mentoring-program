@@ -1,31 +1,11 @@
-import { Task } from '../interfaces/task.interface';
-import { Challenge } from '../interfaces/challenge.interface';
+import { TaskDocument } from '../interfaces/task.interface';
+import { ChallengeDocument } from '../interfaces/challenge.interface';
 import { StateChallenge } from '../enums/stateChallenge.enum';
-import { Achievement } from '../interfaces/achievement.interface';
-import { loadAchievements } from '../../../data/achievements';
-import { ActualAchievement } from '../interfaces/actualAchievement.interface';
-import { ActualTask } from '../interfaces/actualTask.interface';
+import { AchievementDocument } from '../interfaces/achievement.interface';
 import { Constants } from '../constants/constants';
-
-function createActualTask(task: Task): ActualTask {
-  const actualTask: ActualTask = {
-      id: task.id,
-      description: task.description,
-      status: Constants.PENDING_STATUS,
-  };
-  return actualTask;
-}
-
-function createActualAchievement(achievement: Achievement, actualTasks: ActualTask[]): ActualAchievement {
-  const actualAchievement: ActualAchievement = {
-      id: achievement.id,
-      description: achievement.description,
-      image: achievement.image,
-      status: Constants.PENDING_STATUS,
-      tasks: actualTasks,
-  };
-  return actualAchievement;
-}
+import Task from "../../models/Task";
+import Challenge from "../../models/Challenge";
+import Achievement from "../../models/Achievement";
 
 /**
 * Returns a new challenge using the following parameters: a list of tasks, a list of challenges, challenge duration
@@ -45,37 +25,34 @@ function randomArrayShuffle<T>(array: T[]): T[] {
   return array;
 }
 
-export function startNewChallenge(
-  tasks: Task[],
-  challenges: Challenge[],
-  challengeDuration: number = 30,
-  numberOfAchievements: number = Math.floor(challengeDuration / 6)
-): Challenge {
+export async function startNewChallenge(
+    challengeDuration: number = 30,
+    numberOfAchievements: number = Math.floor(challengeDuration / 6)
+): Promise<ChallengeDocument> {
+    const tasks: TaskDocument[] = await Task.find();
 
-  const actualTasks: ActualTask[] = tasks.map(task => createActualTask(task));
-  const allAchievements: ActualAchievement[] = loadAchievements().map(achievement => createActualAchievement(achievement, actualTasks));
-  const mandatoryAchievements: ActualAchievement[] = allAchievements.filter(
-      (achievement) => achievement.id === 4 || achievement.id === 5
-  );
-  const otherAchievements: ActualAchievement[] = randomArrayShuffle(
-      allAchievements.filter((achievement) => achievement.id !== 4 && achievement.id !== 5)
-  ).slice(0, numberOfAchievements - 2);
+    const allAchievements: AchievementDocument[] = await Achievement.find();
+    const mandatoryAchievements: AchievementDocument[] = allAchievements.filter(
+        (achievement) => achievement.description === 'Complete half of the tasks' ||
+            achievement.description === 'Complete all tasks'
+    );
+    const otherAchievements: AchievementDocument[] = randomArrayShuffle(
+        allAchievements.filter((achievement) =>
+            achievement.description !== 'Complete half of the tasks' &&
+            achievement.description !== 'Complete all tasks')
+    ).slice(0, numberOfAchievements - 2);
 
-  const achievements: ActualAchievement[] = mandatoryAchievements.concat(otherAchievements);
+    const achievements: AchievementDocument[] = mandatoryAchievements.concat(otherAchievements);
 
-  const tasksOrder: Task[] = randomArrayShuffle(tasks).slice(0, challengeDuration);
+    const tasksOrder: TaskDocument[] = randomArrayShuffle(tasks).slice(0, challengeDuration);
 
-  const lastChallengeId = challenges.map((challenge) => challenge.id)
-      .sort((a, b) => a - b)[challenges.length - 1];
-
-  const challenge: Challenge = {
-      id: lastChallengeId + 1,
-      state: StateChallenge.IN_PROGRESS,
-      startDate: new Date(),
-      tasksOrder: tasksOrder,
-      tasksStatus: Constants.PENDING_STATUS,
-      achievementsStatus: Constants.PENDING_STATUS,
-      achievements: achievements,
-  };
-  return challenge;
+    const challenge = new Challenge ({
+        state: StateChallenge.IN_PROGRESS,
+        startDate: new Date(),
+        tasksOrder: tasksOrder,
+        tasksStatus: Constants.PENDING_STATUS,
+        achievementsStatus: Constants.PENDING_STATUS,
+        achievements: achievements,
+    });
+    return challenge.save();
 }

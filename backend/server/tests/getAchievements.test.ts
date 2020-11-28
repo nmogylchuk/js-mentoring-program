@@ -1,13 +1,13 @@
 import { StateChallenge } from '../core/enums/stateChallenge.enum';
 import { loadTasks } from './../../data/tasks';
-import { Task } from '../core/interfaces/task.interface';
-import { Challenge } from '../core/interfaces/challenge.interface';
+import { TaskDocument } from '../core/interfaces/task.interface';
+import { ChallengeDocument } from '../core/interfaces/challenge.interface';
 import { StateItem } from '../core/enums/stateItem.enum';
 import { getAchievements } from '../core/services/getAchievements.service';
 import { Constants } from '../core/constants/constants';
 import { ActualAchievement } from '../core/interfaces/actualAchievement.interface';
 
-const taskData: Task[] = loadTasks();
+const taskData: TaskDocument[] = loadTasks();
 describe('getAchievements', () => {
   it('should return expected achievement length', () => {
     const actualAchievement: ActualAchievement = {
@@ -20,7 +20,7 @@ describe('getAchievements', () => {
     const actualAchievements: ActualAchievement[] = [];
     actualAchievements.push(actualAchievement);
 
-    const challenge1: Challenge = {
+    const challenge1: ChallengeDocument = {
       id: 1,
       state: StateChallenge.IN_PROGRESS,
       startDate: new Date(),
@@ -30,7 +30,7 @@ describe('getAchievements', () => {
       achievements: actualAchievements,
     };
 
-    const challenges: Challenge[] = [];
+    const challenges: ChallengeDocument[] = [];
     challenges.push(challenge1);
 
     const actualAchievements1 = getAchievements(1, challenges);

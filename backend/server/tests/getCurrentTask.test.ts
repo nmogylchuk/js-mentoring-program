@@ -1,15 +1,15 @@
 import { StateChallenge } from '../core/enums/stateChallenge.enum';
 import('../core/interfaces/challenge.interface');
 import { loadTasks } from './../../data/tasks';
-import { Task } from '../core/interfaces/task.interface';
-import { Challenge } from '../core/interfaces/challenge.interface';
+import { TaskDocument } from '../core/interfaces/task.interface';
+import { ChallengeDocument } from '../core/interfaces/challenge.interface';
 import { StateItem } from '../core/enums/stateItem.enum';
 import { Status } from '../core/interfaces/status.interface';
 import { getCurrentTask } from '../core/services/getCurrentTask.service';
 
 describe('getCurrentTask', () => {
   it('should return expected task', () => {
-    const taskData: Task[] = loadTasks();
+    const taskData: TaskDocument[] = loadTasks();
 
     const challengeTasksStatus: Status = {
       state: StateItem.PENDING,
@@ -21,7 +21,7 @@ describe('getCurrentTask', () => {
       updated: new Date(),
     };
 
-    const challenge1: Challenge = {
+    const challenge1: ChallengeDocument = {
       id: 1,
       state: StateChallenge.IN_PROGRESS,
       startDate: new Date(),
@@ -30,7 +30,7 @@ describe('getCurrentTask', () => {
       achievementsStatus: challengeAchievmentsStatus,
     };
 
-    const challenges: Challenge[] = [];
+    const challenges: ChallengeDocument[] = [];
     challenges.push(challenge1);
 
     const currentTask1 = getCurrentTask(1, challenges);
@@ -42,7 +42,7 @@ describe('getCurrentTask', () => {
 
 describe('getCurrentTask', () => {
   it('should return expected task', () => {
-    const taskData: Task[] = loadTasks();
+    const taskData: TaskDocument[] = loadTasks();
 
     const challengeTasksStatus: Status = {
       state: StateItem.PENDING,
@@ -54,7 +54,7 @@ describe('getCurrentTask', () => {
       updated: new Date(),
     };
 
-    const challenge2: Challenge = {
+    const challenge2: ChallengeDocument = {
       id: 2,
       state: StateChallenge.IN_PROGRESS,
       startDate: new Date(),
@@ -63,7 +63,7 @@ describe('getCurrentTask', () => {
       achievementsStatus: challengeAchievmentsStatus,
     };
 
-    const challenges: Challenge[] = [];
+    const challenges: ChallengeDocument[] = [];
     challenges.push(challenge2);
 
     const currentTask2 = getCurrentTask(2, challenges);

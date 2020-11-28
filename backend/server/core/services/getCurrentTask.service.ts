@@ -1,8 +1,8 @@
 import { ActualTask } from '../interfaces/actualTask.interface';
-import { Challenge } from '../interfaces/challenge.interface';
+import { ChallengeDocument } from '../interfaces/challenge.interface';
 import { Constants } from '../constants/constants';
 import {
-  findChallengeByid,
+  findChallengeById,
   getDayBetweenStartDateAndCurrentDate,
 } from '../utils/utils';
 
@@ -11,11 +11,10 @@ import {
  * @param challengeId - id of current challenge
  */
 
-export function getCurrentTask(
-  challengeId: number,
-  challenges: Challenge[]
-): ActualTask {
-  const challenge: Challenge = findChallengeByid(challengeId, challenges);
+export async function getCurrentTask(
+    challengeId: string,
+): Promise<ActualTask> {
+  const challenge: ChallengeDocument = await findChallengeById(challengeId);
 
   if (!challenge) {
     return null;

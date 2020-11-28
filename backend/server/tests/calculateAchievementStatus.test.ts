@@ -1,13 +1,13 @@
 import('../core/interfaces/challenge.interface');
 import { StateItem } from '../core/enums/stateItem.enum';
 import { Status } from '../core/interfaces/status.interface';
-import { Achievement } from '../core/interfaces/achievement.interface';
+import { AchievementDocument } from '../core/interfaces/achievement.interface';
 import { loadAchievements } from '../../data/achievements';
 import { calculateAchievementsStatus } from '../core/services/calculateAchievementsStatus.service';
 
 describe('calculateAchievementsStatus', () => {
   it('should calculate expected achievementsStatus', () => {
-    const achievements: Achievement[] = loadAchievements();
+    const achievements: AchievementDocument[] = loadAchievements();
     const tasksStatus: Status = {
       state: StateItem.SUCCESS,
       updated: new Date(),

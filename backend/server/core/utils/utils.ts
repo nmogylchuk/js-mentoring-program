@@ -1,10 +1,10 @@
-import { Challenge } from '../interfaces/challenge.interface';
 import { Constants } from '../constants/constants';
+import Challenge from '../../models/Challenge';
+import {ChallengeDocument} from '../interfaces/challenge.interface';
 
-export function findChallengeByid(challengeId: number, challenges: Challenge[]): Challenge {
-  return challenges.find(
-      (challenge) => challenge.id === challengeId
-  );
+export async function findChallengeById(id: string): Promise<ChallengeDocument> {
+  const challenge: ChallengeDocument = await Challenge.findOne({id});
+  return challenge;
 }
 
 export function getDayBetweenStartDateAndCurrentDate(startDate: Date): number {

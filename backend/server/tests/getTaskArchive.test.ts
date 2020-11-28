@@ -2,15 +2,15 @@ import { StateChallenge } from '../core/enums/stateChallenge.enum';
 
 import('../core/interfaces/challenge.interface');
 import { loadTasks } from './../../data/tasks';
-import { Task } from '../core/interfaces/task.interface';
-import { Challenge } from '../core/interfaces/challenge.interface';
+import { TaskDocument } from '../core/interfaces/task.interface';
+import { ChallengeDocument } from '../core/interfaces/challenge.interface';
 import { StateItem } from '../core/enums/stateItem.enum';
 import { getTaskArchive } from '../core/services/getTaskArchive.service';
 import { ActualAchievement } from '../core/interfaces/actualAchievement.interface';
 import { Constants } from '../core/constants/constants';
 import { ActualTask } from '../core/interfaces/actualTask.interface';
 
-const taskData: Task[] = loadTasks();
+const taskData: TaskDocument[] = loadTasks();
 describe('getTaskArchive', () => {
   it('should return expected archiveItem length', () => {
     const actualTasks: ActualTask[] = taskData
@@ -34,7 +34,7 @@ describe('getTaskArchive', () => {
     const actualAchievements: ActualAchievement[] = [];
     actualAchievements.push(actualAchievement);
 
-    const challenge1: Challenge = {
+    const challenge1: ChallengeDocument = {
       id: 1,
       state: StateChallenge.IN_PROGRESS,
       startDate: new Date(),
@@ -44,7 +44,7 @@ describe('getTaskArchive', () => {
       achievements: actualAchievements,
     };
 
-    const challenges: Challenge[] = [];
+    const challenges: ChallengeDocument[] = [];
     challenges.push(challenge1);
 
     const archiveTask1 = getTaskArchive(1, challenges);
@@ -79,7 +79,7 @@ describe('getTaskArchive', () => {
     const actualAchievements: ActualAchievement[] = [];
     actualAchievements.push(actualAchievement);
 
-    const challenge2: Challenge = {
+    const challenge2: ChallengeDocument = {
       id: 2,
       state: StateChallenge.IN_PROGRESS,
       startDate: new Date(),
@@ -89,7 +89,7 @@ describe('getTaskArchive', () => {
       achievements: actualAchievements,
     };
 
-    const challenges: Challenge[] = [];
+    const challenges: ChallengeDocument[] = [];
     challenges.push(challenge2);
 
     const archiveTask2 = getTaskArchive(2, challenges);
