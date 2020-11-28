@@ -1,7 +1,9 @@
 import * as express from 'express';
 import * as socketIo from 'socket.io';
 import * as bodyParser from 'body-parser';
+import * as mongoose from 'mongoose';
 import { Routes} from './routes/routes';
+import { authMiddleware } from './routes/middleware/auth.middleware';
 import { WebSocket } from './socket/webSocket';
 import { createServer, Server } from 'http';
 import { FailCurrentTasksJob } from './jobs/failCurrentTasksJob';
@@ -10,15 +12,24 @@ const cors = require('cors');
 
 export class App {
     public static readonly HTTP_PORT: number = 8080;
+
     public static readonly WS_PORT: number = 3000;
+
     private readonly application: express.Application;
+
     private routes: Routes = new Routes();
+
     private webSocket: WebSocket = new WebSocket();
+
     private readonly server: Server;
+
     // @ts-ignore
     private io: SocketIO.Server;
+
     private readonly port: string | number;
+
     private readonly wsPort: string | number;
+
     private failCurrentTasksJob: FailCurrentTasksJob = new FailCurrentTasksJob();
 
     constructor() {
@@ -28,6 +39,7 @@ export class App {
         this.application.use(cors());
         this.application.use(bodyParser.json());
         this.application.use(bodyParser.urlencoded({extended: false}));
+        this.application.use(authMiddleware);
         this.application.options('*', cors());
         this.server = createServer(this.application);
         this.initSocket();
@@ -51,6 +63,20 @@ export class App {
 
         this.server.listen(this.wsPort, () => {
             console.log('Running ws server on port %s', this.wsPort);
+        });
+
+        mongoose.connect('mongodb://localhost:27017/task-manager', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true,
+            useFindAndModify: false,
+        });
+        mongoose.connection.on('open', () => {
+            console.info('Connected to Mongo.');
+        });
+
+        mongoose.connection.on('error', (err: any) => {
+            console.error(err);
         });
     }
 

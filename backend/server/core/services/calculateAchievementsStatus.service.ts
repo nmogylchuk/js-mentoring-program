@@ -1,4 +1,4 @@
-import { Achievement } from '../interfaces/achievement.interface';
+import { AchievementDocument } from '../interfaces/achievement.interface';
 import { Status } from '../interfaces/status.interface';
 
 /**
@@ -8,10 +8,10 @@ import { Status } from '../interfaces/status.interface';
  */
 
 export function calculateAchievementsStatus(
-  achievements: Achievement[],
+  achievements: AchievementDocument[],
   tasksStatus: Status
-): Map<number, Status> {
-  const statuses: Map<number, Status> = new Map();
+): Map<string, Status> {
+  const statuses: Map<string, Status> = new Map();
 
   achievements.forEach((achievement) => {
     statuses.set(achievement.id, tasksStatus);

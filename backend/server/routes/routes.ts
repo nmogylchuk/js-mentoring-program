@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { ChallengeController } from '../controllers/ChallengeController';
 import { AchievementController } from '../controllers/AchievementController';
 import { TaskController } from '../controllers/TaskController';
+import { AuthController } from '../controllers/AuthController';
 
 export class Routes {
 
@@ -10,15 +11,17 @@ export class Routes {
     public achievementController: AchievementController = new AchievementController();
 
     public taskController: TaskController = new TaskController();
+    
+    public authController: AuthController = new AuthController();
 
     public routes({app}: { app: any }): void {
 
-        app.route('/')
-            .get((req: Request, res: Response) => {
-                res.status(200).send({
-                    message: 'GET request successful!'
-                });
-            });
+        app.route('/login')
+            .post((req: Request, res: Response, next: NextFunction) => {
+                console.log(`Request from: ${req.originalUrl}`);
+                console.log(`Request type: ${req.method}`);
+                next();
+            }, this.authController.login);
 
         app.route('/challenges')
             .post((req: Request, res: Response, next: NextFunction) => {
@@ -35,7 +38,6 @@ export class Routes {
 
         app.route('/achievements')
             .get(this.achievementController.getAchievements);
-
-
+            
     }
 }

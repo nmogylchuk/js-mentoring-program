@@ -1,15 +1,15 @@
 import { StateChallenge } from '../core/enums/stateChallenge.enum';
 import('../core/interfaces/challenge.interface');
 import { loadTasks } from './../../data/tasks';
-import { Task } from '../core/interfaces/task.interface';
-import { Challenge } from '../core/interfaces/challenge.interface';
+import { TaskDocument } from '../core/interfaces/task.interface';
+import { ChallengeDocument } from '../core/interfaces/challenge.interface';
 import { StateItem } from '../core/enums/stateItem.enum';
 import { Status } from '../core/interfaces/status.interface';
 import { startNewChallenge } from '../core/services/startNewChallenge.service';
 
 describe('startNewChallenge', () => {
   it('should create expected Challenge', () => {
-    const tasks: Task[] = loadTasks();
+    const tasks: TaskDocument[] = loadTasks();
     const challengeTasksStatus: Status = {
       state: StateItem.PENDING,
       updated: new Date(),
@@ -20,7 +20,7 @@ describe('startNewChallenge', () => {
       updated: new Date(),
     };
 
-    const challenge1: Challenge = {
+    const challenge1: ChallengeDocument = {
       id: 1,
       state: StateChallenge.IN_PROGRESS,
       startDate: new Date(),
@@ -29,7 +29,7 @@ describe('startNewChallenge', () => {
       achievementsStatus: challengeAchievmentsStatus,
     };
 
-    const challenge2: Challenge = {
+    const challenge2: ChallengeDocument = {
       id: 6,
       state: StateChallenge.IN_PROGRESS,
       startDate: new Date(),
@@ -38,7 +38,7 @@ describe('startNewChallenge', () => {
       achievementsStatus: challengeAchievmentsStatus,
     };
 
-    const challenges: Challenge[] = [];
+    const challenges: ChallengeDocument[] = [];
     challenges.push(challenge1);
     challenges.push(challenge2);
 
