@@ -6,7 +6,16 @@ import { Status } from '../interfaces/status.interface';
  * @param achievements - a list of achievements
  * @param taskStatus - tasks status
  */
-type CalculateAchievementStatus = (
-    achievements: Achievement[],
-    taskStatus: Status
-  ) => Status;
+
+export function calculateAchievementsStatus(
+  achievements: Achievement[],
+  tasksStatus: Status
+): Map<number, Status> {
+  const statuses: Map<number, Status> = new Map();
+
+  achievements.forEach((achievement) => {
+    statuses.set(achievement.id, tasksStatus);
+  });
+
+  return statuses;
+}
