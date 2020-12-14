@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "description": "Complete each task 7 days in a row",
+        "status": "SUCCESS",
+        "image": "https://www.flaticon.com/svg/static/icons/svg/860/860743.svg"
+    },
+    {
+        "id": 2,
+        "description": "Complete five tasks before 8:00 AM",
+        "status": "PENDING",
+        "image": "https://www.flaticon.com/svg/static/icons/svg/833/833593.svg"
+    },
+    {
+        "id": 3,
+        "description": "Complete 4 Monday's tasks",
+        "status": "FAILURE",
+        "image": "https://www.flaticon.com/svg/static/icons/svg/606/606795.svg"
+    },
+    {
+        "id": 4,
+        "description": "Complete half of the tasks",
+        "status": "FAILURE",
+        "image": "https://www.flaticon.com/svg/static/icons/svg/25/25662.svg"
+    },
+    {
+        "id": 5,
+        "description": "Complete all tasks",
+        "status": "FAILURE",
+        "image": "https://www.flaticon.com/svg/static/icons/svg/786/786331.svg"
+    }
+]

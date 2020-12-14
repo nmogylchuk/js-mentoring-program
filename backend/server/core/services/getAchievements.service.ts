@@ -1,4 +1,4 @@
-cimport { ActualAchievement } from '../interfaces/actualAchievement.interface';
+import { ActualAchievement } from '../interfaces/actualAchievement.interface';
 import { ChallengeDocument } from '../interfaces/challenge.interface';
 import { findChallengeById } from '../utils/utils';
 

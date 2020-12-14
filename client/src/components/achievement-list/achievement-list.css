@@ -1,0 +1,14 @@
+.achievement-list {
+  margin: 2rem auto 0 auto;
+}
+
+.achievement-list__list {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.achievement-list__title {
+  font-size: 1.2rem;
+  color: grey;
+}

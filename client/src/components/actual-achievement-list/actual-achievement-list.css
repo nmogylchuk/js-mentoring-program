@@ -1,0 +1,26 @@
+.actual-chievement-list {
+  margin: 2rem auto 0 auto;
+}
+
+.actual-achievement-list__list {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.actual-achievement-list__item {
+  margin: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+.actual-achievement-list__button {
+  width: 65px;
+  height: 65px;
+}
+
+.actual-achievement-list__description {
+  font-size: 0.7rem;
+  padding: 10px;
+}
