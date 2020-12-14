@@ -1,0 +1,16 @@
+.archive__title {
+  text-align: center;
+  padding: 10px;
+}
+
+.archive__link {
+  margin: 1rem;
+}
+
+.archive__link {
+  color: orange;
+}
+
+.archive__link:hover {
+  color: green;
+}

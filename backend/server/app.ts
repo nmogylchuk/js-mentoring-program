@@ -2,10 +2,10 @@ import * as express from 'express';
 import * as socketIo from 'socket.io';
 import * as bodyParser from 'body-parser';
 import * as mongoose from 'mongoose';
+import { createServer, Server } from 'http';
 import { Routes} from './routes/routes';
 import { authMiddleware } from './routes/middleware/auth.middleware';
 import { WebSocket } from './socket/webSocket';
-import { createServer, Server } from 'http';
 import { FailCurrentTasksJob } from './jobs/failCurrentTasksJob';
 
 const cors = require('cors');

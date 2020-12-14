@@ -1,0 +1,12 @@
+.task-list {
+  margin: 1rem 0;
+}
+
+.task-list__title {
+  font-size: 1.2rem;
+  color: grey;
+}
+
+.list-group-item {
+  padding: 0.25rem 0.75rem;
+}
