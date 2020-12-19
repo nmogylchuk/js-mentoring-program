@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import ArchiveItem from './../archive-item/archive-item';
-import archiveList from './../../data/archive.json';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-import './archive.css';
+import ArchiveItem from './../archive-item/archive-item';
+import archiveList from './../../data/archive.json';
+import './archive.scss';
 
 const Archive = () => {
   const [archive, setArchive] = useState([]);

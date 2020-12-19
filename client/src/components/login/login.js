@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './login.css';
+import './login.scss';
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -20,7 +20,9 @@ const Login = () => {
       <h1 className='login__title'>Login</h1>
       <form className='login__form'>
         <div>
-          <label className='login__input-label'>Email</label>
+          <label className='login__input-label' htmlFor='email'>
+            Email
+          </label>
         </div>
         <div>
           <input
@@ -36,7 +38,9 @@ const Login = () => {
         </div>
 
         <div>
-          <label className='login__input-label'>Password</label>
+          <label className='login__input-label' htmlFor='password'>
+            Password
+          </label>
         </div>
         <div>
           <input
@@ -50,7 +54,7 @@ const Login = () => {
             required
           />
         </div>
-        <button className='login__button' type='submit' onClick={loginHandler}>
+        <button className='login__button' type='submit' onClick={loginHandler} aria-label="Center Align">
           Submit
         </button>
       </form>

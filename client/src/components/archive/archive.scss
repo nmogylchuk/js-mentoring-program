@@ -1,0 +1,20 @@
+@import './../../styles/style.scss';
+
+.archive {
+  &__title {
+    text-align: center;
+    padding: 10px;
+  }
+
+  &__link {
+    margin: 1rem;
+  }
+
+  &__link {
+    color: $orange;
+  }
+
+  &__link:hover {
+    color: $green;
+  }
+}

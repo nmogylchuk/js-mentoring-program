@@ -1,5 +1,5 @@
 import React from 'react';
-import './task-status-filter.css';
+import './task-status-filter.scss';
 
 const filterButtons = [
   { status: 'all', label: 'All' },
@@ -13,7 +13,7 @@ const TaskStatusFilter = ({ filter, onFilterChange = () => {} }) => {
     const statusClassNames = 'btn ' + (isActive ? 'btn-success' : 'btn-outline-secondary');
 
     return (
-      <button className={statusClassNames} key={status} onClick={() => onFilterChange(status)}>
+      <button className={statusClassNames} key={status} onClick={() => onFilterChange(status)} aria-label='Right Align'>
         {label}
       </button>
     );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../header/header';
 import TaskList from '../task-list/task-list';
 import SearchPanel from '../search-panel/search-panel';
@@ -6,8 +7,8 @@ import TaskStatusFilter from '../task-status-filter/task-status-filter';
 import AchievementList from '../achievement-list/achievement-list';
 import tasks from '../../data/tasks.json';
 import achievements from '../../data/achievements.json';
-import { Link } from 'react-router-dom';
-import './challenge.css';
+// import { SUCCESS } from 'constants';
+import './challenge.scss';
 
 const Challenge = () => {
   const [achievementsList, setAchievementsList] = useState([]);
@@ -16,29 +17,21 @@ const Challenge = () => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    try {
-      const getAchievementList = setTimeout(() => {
-        setAchievementsList(achievements);
-      }, 200);
-      return () => {
-        clearTimeout(getAchievementList);
-      };
-    } catch (e) {
-      console.error(e);
-    }
+    const getAchievementList = setTimeout(() => {
+      setAchievementsList(achievements);
+    }, 200);
+    return () => {
+      clearTimeout(getAchievementList);
+    };
   }, []);
 
   useEffect(() => {
-    try {
-      const getTaskList = setTimeout(() => {
-        setTaskList(tasks);
-      }, 200);
-      return () => {
-        clearTimeout(getTaskList);
-      };
-    } catch (e) {
-      console.error(e);
-    }
+    const getTaskList = setTimeout(() => {
+      setTaskList(tasks);
+    }, 200);
+    return () => {
+      clearTimeout(getTaskList);
+    };
   }, []);
 
   const onFilterChange = filter => {
@@ -50,22 +43,16 @@ const Challenge = () => {
   };
 
   function filterTasks(taskList, filter) {
-    if (filter === 'all') {
-      return taskList;
-    } else if (filter === 'FAILURE') {
-      return taskList.filter(task => task.status === 'FAILURE');
-    } else if (filter === 'SUCCESS') {
-      return taskList.filter(task => task.status === 'SUCCESS');
-    }
+    return filter === 'all' ? taskList : taskList.filter(task => task.status === filter);
   }
 
   function searchItems(taskList, search) {
-    if (search.length === 0) {
+    if (!search.length) {
       return taskList;
     }
 
     return taskList.filter(task => {
-      return task.description.toLowerCase().indexOf(search.toLowerCase()) > -1;
+      return task.description.toLowerCase().includes(search.toLowerCase());
     });
   }
 

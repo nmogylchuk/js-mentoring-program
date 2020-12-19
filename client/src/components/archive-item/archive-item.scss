@@ -1,0 +1,29 @@
+@import './../../styles/style.scss';
+
+.archive-item {
+  margin: 0.5rem 0;
+
+  &__button {
+    @include button-check;
+    
+    &--done {
+      background-color: $green;
+    }
+
+    &--failure {
+      background-color: $orange;
+    }
+  }
+
+  &__label {
+    margin-left: 1.25rem;
+    line-height: 35px;
+    cursor: pointer;
+
+    &--done {
+      text-decoration: line-through;
+      font-weight: bold;
+      color: $green;
+    }
+  }
+}

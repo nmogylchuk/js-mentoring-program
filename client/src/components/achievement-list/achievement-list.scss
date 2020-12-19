@@ -1,0 +1,18 @@
+@import './../../styles/style.scss';
+
+.achievement-list {
+  margin: 2rem auto 0;
+
+  &__list {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    // padding-left: 0;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    color: $grey;
+  }
+}

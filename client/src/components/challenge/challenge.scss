@@ -1,0 +1,26 @@
+@import './../../styles/style.scss';
+
+.results {
+  margin: 2rem auto;
+
+  &__button {
+    margin: 1rem auto;
+    width: 300px;
+    display: block;
+    padding: 10px 40px;
+    background-color: $green;
+    text-transform: uppercase;
+    border: none;
+
+    &:hover {
+      background-color: darken($green, 10%);
+    }
+  }
+
+  a.results__button {
+    text-align: center;
+    color: $white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}

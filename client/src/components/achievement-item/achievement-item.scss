@@ -1,0 +1,31 @@
+@import './../../styles/style.scss';
+
+.achievement-item {
+  margin: 10px auto;
+  text-align: center;
+  width: 150px;
+  list-style-type: none;
+
+  &__button {
+    background-color: $orange;
+    border: none;
+    width: 65px;
+    height: 65px;
+    border-radius: 6px;
+
+    &--done {
+      background-color: $green;
+    }
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    line-height: 20px;
+    padding: 10px;
+  }
+
+  &__image {
+    width: 35px;
+    height: auto;
+  }
+}

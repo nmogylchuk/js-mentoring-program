@@ -1,6 +1,6 @@
 import React from 'react';
 import AchievementItem from './../achievement-item/achievement-item';
-import './achievement-list.css';
+import './achievement-list.scss';
 
 const AchievementList = ({ achievementsList, achievementDoneCount, achievementTotalCount }) => {
   return (
@@ -8,11 +8,11 @@ const AchievementList = ({ achievementsList, achievementDoneCount, achievementTo
       <h2 className='achievement-list__title'>
         Achievements: {achievementDoneCount} / {achievementTotalCount}
       </h2>
-      <div className='achievement-list__list'>
+      <ul className='achievement-list__list'>
         {achievementsList.map(achievementItem => (
           <AchievementItem key={achievementItem.id} achievementItem={achievementItem} />
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

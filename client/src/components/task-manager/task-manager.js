@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ActualTask from '../actual-task/actual-task';
 import Header from '../header/header';
-import currentTask from './../../data/actualTask.json';
 import ActualAchievementList from '../actual-achievement-list/actual-achievement-list';
-import { Link } from 'react-router-dom';
+import currentTask from './../../data/actualTask.json';
 import actualAchievements from './../../data/actual-achievements.json';
-import './task-manager.css';
+// import { SUCCESS } from 'constants';
+import './task-manager.scss';
 
 const TaskManager = () => {
   const [actualTask, setActualTask] = useState('');
