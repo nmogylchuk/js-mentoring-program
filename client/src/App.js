@@ -9,7 +9,6 @@ import './App.scss';
 
 const App = () => {
   const isAuth = window.localStorage.getItem('loginInfo');
-  console.log('isAuth: ' + isAuth);
   if (isAuth) {
     return (
       <Router>
@@ -34,7 +33,10 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path='/login' component={Login} />
+        <Route path='/login'>
+          {' '}
+          <Login />{' '}
+        </Route>
         <Redirect from='*' to='/login' />
       </Switch>
     </Router>

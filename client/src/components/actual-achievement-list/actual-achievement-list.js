@@ -4,13 +4,13 @@ import './actual-achievement-list.scss';
 
 const ActualAchievementList = ({ actualAchievementsList }) => {
   return (
-    <ul className='actual-achievement-list'>
-      <div className='actual-achievement-list__list'>
+    <div className='actual-achievement-list'>
+      <ul className='actual-achievement-list__list'>
         {actualAchievementsList.map(actualAchievementItem => (
           <ActualAchievementItem key={actualAchievementItem.id} actualAchievementItem={actualAchievementItem} />
         ))}
-      </div>
-    </ul>
+      </ul>
+    </div>
   );
 };
 

@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <div className='header'>
-      <button className='header__logout-button' type='button' onClick={logoutHandler} aria-label="Right Align">
+      <button className='header__logout-button' type='button' onClick={logoutHandler} aria-label='Right Align'>
         Logout
       </button>
     </div>

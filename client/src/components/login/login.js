@@ -54,7 +54,7 @@ const Login = () => {
             required
           />
         </div>
-        <button className='login__button' type='submit' onClick={loginHandler} aria-label="Center Align">
+        <button className='login__button' type='submit' onClick={loginHandler} aria-label='Center Align'>
           Submit
         </button>
       </form>
