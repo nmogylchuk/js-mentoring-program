@@ -21,7 +21,26 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <main role="main" class="container" id="root"></main>
-  <script src="./../src/main.js"></script>
+  <script>
+    console.log('ServiceWorker start registering start');
+    console.log(navigator);
+    // if ('serviceWorker' in navigator) {
+    //   console.log('ServiceWorker start registering');
+    //   window.addEventListener('load', function () {
+    //     navigator.serviceWorker.register('service-worker.js').then(
+    //       function (registration) {
+    //         // Registration was successful
+    //         console.log('ServiceWorker registration successful with scope: ', registration);
+    //       },
+    //       function (err) {
+    //         // registration failed :(
+    //         console.log('ServiceWorker registration failed: ', err);
+    //       }
+    //     );
+    //   });
+    // }
+
+  </script>
 </body>
 
 </html>
