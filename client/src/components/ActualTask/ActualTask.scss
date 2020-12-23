@@ -1,0 +1,46 @@
+@import './../../styles/style.scss';
+
+.actual-task {
+  &__name {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 3rem;
+  }
+
+  &__message {
+    padding: 10px;
+    font-style: italic;
+    color: $grey;
+
+    &--done {
+      font-weight: bold;
+    }
+  }
+
+  &__button {
+    @include button-check;
+    background-color: $light-grey;
+    border: 1px solid $black;
+    margin: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+    &--done {
+      background-color: $green;
+    }
+  }
+
+  .actual-task__description {
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--done {
+      text-decoration: line-through;
+      font-weight: bold;
+      color: $green;
+    }
+  }
+}

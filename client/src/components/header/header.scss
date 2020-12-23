@@ -1,0 +1,20 @@
+@import './../../styles/style.scss';
+
+.header {
+  height: 70px;
+
+  &__logout-button {
+    padding: 5px 20px;
+    background-color: $light-grey;
+    text-transform: uppercase;
+    border: none;
+    color: black;
+    border: 1px solid black;
+    float: right;
+
+    &:hover {
+      background-color: darken($light-grey, 10%);
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import './../../styles/style.scss';
+
+.start {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &__button {
+    margin-top: 1rem;
+    padding: 10px 40px;
+    background-color: $green;
+    text-transform: uppercase;
+    border: none;
+    color: $white;
+
+    &:hover {
+      background-color: darken($green, 10%);
+      cursor: pointer;
+    }
+  }
+}
+
+a.start__button {
+  color: $white;
+  text-decoration: none;
+}

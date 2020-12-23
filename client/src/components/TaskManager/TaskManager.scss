@@ -1,0 +1,14 @@
+.task-manager {
+  margin: 2rem auto;
+  text-align: center;
+
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__link {
+    margin: 1rem;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,14 @@
+@import './../../styles/style.scss';
+
+.task-list {
+  margin: 1rem 0;
+
+  &__title {
+    font-size: 2rem;
+    color: $grey;
+  }
+}
+
+.list-group-item {
+  padding: .25rem .75rem;
+}

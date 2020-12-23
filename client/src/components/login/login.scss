@@ -1,0 +1,28 @@
+@import './../../styles/style.scss';
+
+.login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &__button {
+    margin-top: 1rem;
+    padding: 10px 40px;
+    background-color: $green;
+    color: $white;
+    text-transform: uppercase;
+    border: none;
+
+    &:hover {
+      background-color: darken($green, 10%);
+    }
+  }
+
+  &__input-name {
+    padding: 10px;
+    width: 300px;
+    max-width: 100%;
+  }
+}

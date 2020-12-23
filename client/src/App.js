@@ -1,25 +1,30 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import TaskManager from './components/task-manager/task-manager';
-import Archive from './components/archive/archive';
-import Challenge from './components/challenge/challenge';
-import Start from './components/start/start';
-import Login from './components/login/login';
-import Logout from './components/logout/logout';
-import './App.css';
+import TaskManager from './components/TaskManager/TaskManager';
+import Archive from './components/Archive/Archive';
+import Challenge from './components/Challenge/Challenge';
+import Start from './components/Start/Start';
+import Login from './components/Login/Login';
+import './App.scss';
 
 const App = () => {
   const isAuth = window.localStorage.getItem('loginInfo');
-  console.log('isAuth: ' + isAuth);
-  if (isAuth !== null) {
+  if (isAuth) {
     return (
       <Router>
         <Switch>
-          <Route exact path='/start' component={Start} />
-          <Route exact path='/' component={TaskManager} />
-          <Route path='/archive' component={Archive} />
-          <Route path='/challenge' component={Challenge} />
-          <Route path='/logout' component={Logout} />
+          <Route exact path='/start'>
+            <Start />
+          </Route>
+          <Route exact path='/'>
+            <TaskManager />
+          </Route>
+          <Route path='/archive'>
+            <Archive />
+          </Route>
+          <Route path='/challenge'>
+            <Challenge />
+          </Route>
           <Redirect from='*' to='/' />
         </Switch>
       </Router>
@@ -28,7 +33,10 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path='/login' component={Login} />
+        <Route path='/login'>
+          {' '}
+          <Login />{' '}
+        </Route>
         <Redirect from='*' to='/login' />
       </Switch>
     </Router>
