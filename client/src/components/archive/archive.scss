@@ -8,13 +8,10 @@
 
   &__link {
     margin: 1rem;
-  }
-
-  &__link {
     color: $orange;
-  }
 
-  &__link:hover {
-    color: $green;
+    &:hover {
+      color: $green;
+    }
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './task-status-filter.scss';
+import './TaskStatusFilter.scss';
 
 const filterButtons = [
   { status: 'all', label: 'All' },

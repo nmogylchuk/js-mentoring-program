@@ -1,6 +1,6 @@
 import React from 'react';
-import AchievementItem from './../achievement-item/achievement-item';
-import './achievement-list.scss';
+import AchievementItem from '../AchievementItem/AchievementItem';
+import './AchievementList.scss';
 
 const AchievementList = ({ achievementsList, achievementDoneCount, achievementTotalCount }) => {
   return (

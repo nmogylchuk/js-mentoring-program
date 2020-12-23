@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './login.scss';
+import './Login.scss';
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -7,8 +7,8 @@ const Login = () => {
     password: '',
   });
 
-  const changeHandler = event => {
-    setForm({ ...form, [event.target.name]: event.target.value });
+  const changeHandler = ({ target }) => {
+    setForm({ ...form, [target.name]: target.value });
   };
 
   const loginHandler = () => {

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ActualTask from '../actual-task/actual-task';
-import Header from '../header/header';
-import ActualAchievementList from '../actual-achievement-list/actual-achievement-list';
-import currentTask from './../../data/actualTask.json';
-import actualAchievements from './../../data/actual-achievements.json';
-// import { SUCCESS } from 'constants';
-import './task-manager.scss';
+import ActualTask from '../ActualTask/ActualTask';
+import Header from '../Header/Header';
+import ActualAchievementList from '../ActualAchievementList/ActualAchievementList';
+import currentTask from '../../data/actualTask.json';
+import actualAchievements from '../../data/actual-achievements.json';
+import './TaskManager.scss';
 
 const TaskManager = () => {
   const [actualTask, setActualTask] = useState('');
@@ -14,29 +13,21 @@ const TaskManager = () => {
   const [status, setStatus] = useState('');
 
   useEffect(() => {
-    try {
-      const getActualTask = setTimeout(() => {
-        setActualTask(currentTask);
-      }, 200);
-      return () => {
-        clearTimeout(getActualTask);
-      };
-    } catch (e) {
-      console.error(e);
-    }
+    const getActualTask = setTimeout(() => {
+      setActualTask(currentTask);
+    }, 200);
+    return () => {
+      clearTimeout(getActualTask);
+    };
   }, []);
 
   useEffect(() => {
-    try {
-      const getActualAchievementsList = setTimeout(() => {
-        setActualAchievementsList(actualAchievements);
-      }, 200);
-      return () => {
-        clearTimeout(getActualAchievementsList);
-      };
-    } catch (e) {
-      console.error(e);
-    }
+    const getActualAchievementsList = setTimeout(() => {
+      setActualAchievementsList(actualAchievements);
+    }, 200);
+    return () => {
+      clearTimeout(getActualAchievementsList);
+    };
   }, []);
 
   const onChangeStatus = () => {

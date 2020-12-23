@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../header/header';
-import TaskList from '../task-list/task-list';
-import SearchPanel from '../search-panel/search-panel';
-import TaskStatusFilter from '../task-status-filter/task-status-filter';
-import AchievementList from '../achievement-list/achievement-list';
+import Header from '../Header/Header';
+import TaskList from '../TaskList/TaskList';
+import SearchPanel from '../SearchPanel/SearchPanel';
+import TaskStatusFilter from '../TaskStatusFilter/TaskStatusFilter';
+import AchievementList from '../AchievementList/AchievementList';
 import tasks from '../../data/tasks.json';
 import achievements from '../../data/achievements.json';
-// import { SUCCESS } from 'constants';
-import './challenge.scss';
+import './Challenge.scss';
 
 const Challenge = () => {
   const [achievementsList, setAchievementsList] = useState([]);
@@ -64,10 +63,10 @@ const Challenge = () => {
   const achievementTotalCount = achievements.length;
 
   return (
-    <div className='results'>
+    <div className='challenge'>
       <Header />
-      <h1 className='results__title'>Challenge succesed!</h1>
-      <div className='result__search-panel d-flex'>
+      <h1 className='challenge__title'>Challenge succesed!</h1>
+      <div className='challenge__search-panel d-flex'>
         <SearchPanel onSearchChange={onSearchChange} />
         <TaskStatusFilter filter={filter} onFilterChange={onFilterChange} />
       </div>
@@ -77,7 +76,7 @@ const Challenge = () => {
         achievementDoneCount={achievementDoneCount}
         achievementTotalCount={achievementTotalCount}
       />
-      <Link to='/start' className='results__button'>
+      <Link to='/start' className='challenge__button'>
         Start new 30 days challenge
       </Link>
     </div>

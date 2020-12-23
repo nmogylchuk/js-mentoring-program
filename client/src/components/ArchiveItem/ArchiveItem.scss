@@ -1,7 +1,7 @@
 @import './../../styles/style.scss';
 
 .archive-item {
-  margin: 0.5rem 0;
+  margin: .5rem 0;
 
   &__button {
     @include button-check;

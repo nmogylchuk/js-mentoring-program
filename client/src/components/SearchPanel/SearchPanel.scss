@@ -1,0 +1,14 @@
+@import './../../styles/style.scss';
+
+.search-input {
+  width: auto;
+  flex-grow: 1;
+  margin-right: 3px;
+  font-size: 1.6rem;
+}
+
+@include mobile {
+  .search-input {
+    font-size: 1.2rem;
+  }
+}

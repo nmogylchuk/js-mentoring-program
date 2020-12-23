@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-// import { SUCCESS } from 'constants';
-import './actual-task.scss';
+import './ActualTask.scss';
 
 const ActualTask = ({ actualTask: { description }, status, onChangeStatus }) => {
-  const [online, setOnline] = useState(true);
+  const [connectionStatus, setConnectionStatus] = useState(true);
 
   // Vibration
   navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
@@ -44,20 +43,14 @@ const ActualTask = ({ actualTask: { description }, status, onChangeStatus }) => 
     };
   });
 
-  function connectionHandler(event) {
-    setOnline(navigator.onLine);
-
-    if (event.type === 'online') {
-      console.log('You are online');
-    } else {
-      console.log('You are offline');
-    }
-  }
+  const connectionHandler = () => {
+    setConnectionStatus(navigator.onLine);
+  };
 
   return (
     <div className='actual-task'>
+      <div className='actual-task__status'>{connectionStatus ? 'You are online!' : 'You are offline :('}</div>
       <h1 className='actual-task__name'>Hello my {browser} friend,</h1>
-      <div className='actual-task__status'>{online}</div>
       {status === 'SUCCESS' ? (
         <p className='actual-task__message actual-task__message--done'>You`ve already completed your task for today. Well Done!</p>
       ) : (
@@ -66,6 +59,7 @@ const ActualTask = ({ actualTask: { description }, status, onChangeStatus }) => 
       <div className='actual-task__item'>
         <button
           className={`actual-task__button ${status === 'SUCCESS' ? 'actual-task__button--done' : ''}`}
+          aria-label='Left Align'
           onClick={() => {
             onChangeStatus();
             vibrateStart(1000);

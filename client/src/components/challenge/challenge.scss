@@ -1,6 +1,6 @@
 @import './../../styles/style.scss';
 
-.results {
+.challenge {
   margin: 2rem auto;
 
   &__button {
@@ -11,16 +11,16 @@
     background-color: $green;
     text-transform: uppercase;
     border: none;
+    text-align: center;
+    font-weight: bold;
 
     &:hover {
       background-color: darken($green, 10%);
     }
   }
 
-  a.results__button {
-    text-align: center;
+  a.challenge__button {
     color: $white;
-    font-weight: bold;
     text-decoration: none;
   }
 }

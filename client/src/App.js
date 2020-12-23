@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import TaskManager from './components/task-manager/task-manager';
-import Archive from './components/archive/archive';
-import Challenge from './components/challenge/challenge';
-import Start from './components/start/start';
-import Login from './components/login/login';
+import TaskManager from './components/TaskManager/TaskManager';
+import Archive from './components/Archive/Archive';
+import Challenge from './components/Challenge/Challenge';
+import Start from './components/Start/Start';
+import Login from './components/Login/Login';
 import './App.scss';
 
 const App = () => {

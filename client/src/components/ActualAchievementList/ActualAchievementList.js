@@ -1,6 +1,6 @@
 import React from 'react';
-import ActualAchievementItem from '../actual-achievement-item/actual-achievement-item';
-import './actual-achievement-list.scss';
+import ActualAchievementItem from '../ActualAchievementItem/ActualAchievementItem';
+import './ActualAchievementList.scss';
 
 const ActualAchievementList = ({ actualAchievementsList }) => {
   return (

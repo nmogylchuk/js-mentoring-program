@@ -1,6 +1,5 @@
 import React from 'react';
-// import { SUCCESS } from 'constants';
-import './achievement-item.scss';
+import './AchievementItem.scss';
 
 const AchievementItem = ({ achievementItem: { description, status, image } }) => {
   return (

@@ -2,24 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import ArchiveItem from './../archive-item/archive-item';
+import ArchiveItem from './../ArchiveItem/ArchiveItem';
 import archiveList from './../../data/archive.json';
-import './archive.scss';
+import './Archive.scss';
 
 const Archive = () => {
   const [archive, setArchive] = useState([]);
 
   useEffect(() => {
-    try {
-      const getArchiveList = setTimeout(() => {
-        setArchive(archiveList);
-      }, 200);
-      return () => {
-        clearTimeout(getArchiveList);
-      };
-    } catch (e) {
-      console.error(e);
-    }
+    const getArchiveList = setTimeout(() => {
+      setArchive(archiveList);
+    }, 200);
+    return () => {
+      clearTimeout(getArchiveList);
+    };
   }, []);
 
   return (

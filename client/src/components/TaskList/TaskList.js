@@ -1,6 +1,6 @@
 import React from 'react';
-import TaskItem from '../task-item/task-item';
-import './task-list.scss';
+import TaskItem from '../TaskItem/TaskItem';
+import './TaskList.scss';
 
 const TaskList = ({ visibleTasks, taskDoneCount, taskTotalCount }) => {
   return (

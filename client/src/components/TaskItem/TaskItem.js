@@ -1,10 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
-// import { SUCCESS } from 'constants';
-import './archive-item.scss';
+import './TaskItem.scss';
 
-const ArchiveItem = ({ archiveItem: { description, status } }) => {
+const TaskItem = ({ taskItem: { status, description } }) => {
   const getFacets = () => {
     const icon = status === 'SUCCESS' ? faCheck : faTimes;
     const buttonStatus = status === 'SUCCESS' ? 'done' : 'failure';
@@ -17,8 +16,8 @@ const ArchiveItem = ({ archiveItem: { description, status } }) => {
   const { icon, buttonClassName, descriptonClassName } = getFacets();
 
   return (
-    <div className='archive-item list-group-item'>
-      <button className={buttonClassName} aria-label="Left Align">
+    <div className='task-item list-group-item'>
+      <button className={buttonClassName} aria-label='Left Align'>
         <FontAwesomeIcon icon={icon} />
       </button>
       <span className={descriptonClassName}>{description}</span>
@@ -26,4 +25,4 @@ const ArchiveItem = ({ archiveItem: { description, status } }) => {
   );
 };
 
-export default ArchiveItem;
+export default TaskItem;
